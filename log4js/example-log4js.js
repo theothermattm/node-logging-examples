@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { createModuleLogger, log4js } from './log4jslogger.js';
-import { clientsUpdatedSince, setLastRun, getLastRun, doSomethingReallyComplicatedInAnotherService } from './log4jsubfolder/clientservice.js';
+import { clientsUpdatedSince, setLastRun, getLastRun, doSomethingReallyComplicatedInAnotherService } from './log4jssubfolder/clientservice.js';
 
 const logger = createModuleLogger(import.meta.url);
 const perfLogger = log4js.getLogger("perf");

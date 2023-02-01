@@ -6,8 +6,8 @@ log4js.configure({
   appenders: { standard: { type: "stdout" }, },
   categories: {
     default: { appenders: ["standard"], level: "info" },
-    'log4jsubfolder/clientservice.js': { appenders: ["standard"], level: "debug" },
-    perf: { appenders: ["standard"], level: "warn" }
+    'log4js/log4jssubfolder/clientservice.js': { appenders: ["standard"], level: "debug" },
+    perf: { appenders: ["standard"], level: "trace" }
   },
 });
 
