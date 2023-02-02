@@ -1,16 +1,20 @@
 import log4js from 'log4js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import getGlobbedFiles from './categoryglobber.js';
 
-log4js.configure({
+
+const globbedOptions = {
   appenders: { standard: { type: "stdout" }, },
   categories: {
     default: { appenders: ["standard"], level: "info" },
-    'log4js/log4jssubfolder/clientservice.js': { appenders: ["standard"], level: "debug" },
+    'log4js/log4jssubfolder/**.js': { appenders: ["standard"], level: "debug" },
     perf: { appenders: ["standard"], level: "trace" }
   },
-});
+}
 
+const unglobbedOptions = getGlobbedFiles(globbedOptions);
+log4js.configure(unglobbedOptions);
 
 /**
  * call like this with es modules:  const logger = createModuleLogger(import.meta.url) 

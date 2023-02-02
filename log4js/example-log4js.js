@@ -1,6 +1,7 @@
 import moment from 'moment';
 import { createModuleLogger, log4js } from './log4jslogger.js';
 import { clientsUpdatedSince, setLastRun, getLastRun, doSomethingReallyComplicatedInAnotherService } from './log4jssubfolder/clientservice.js';
+import { doSomethingAwesome } from './log4jssubfolder/anotherservice.js';
 
 const logger = createModuleLogger(import.meta.url);
 const perfLogger = log4js.getLogger("perf");
@@ -33,6 +34,9 @@ const syncClients = async function() {
     logger.error(`Service Call Result ${JSON.stringify(modifiedClients, null, 2)}`)
   }
   logger.trace("Done calling out and doing important things.");
+
+  logger.trace("About to do something cool");
+  await doSomethingAwesome();
 
   logger.trace("Setting last run date so we know where to pick up next time.")
   await setLastRun(moment())
