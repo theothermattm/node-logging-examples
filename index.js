@@ -2,6 +2,7 @@
 
 // import { syncClients } from './pino/example-pino.js'
 // import { syncClients } from './console/example-console.js'
-import { syncClients } from './log4js/example-log4js.js'
+import { syncClients } from './winston/example-winston.js'
+// import { syncClients } from './log4js/example-log4js.js'
 
 syncClients();
