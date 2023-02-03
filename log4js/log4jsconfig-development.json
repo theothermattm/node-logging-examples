@@ -1,0 +1,11 @@
+{
+  "appenders": { "standard": { "type": "stdout" } },
+  "categories": {
+    "default": { "appenders": ["standard"], "level": "info" },
+    "log4js/log4jssubfolder/**.js": {
+      "appenders": ["standard"],
+      "level": "debug"
+    },
+    "perf": { "appenders": ["standard"], "level": "trace" }
+  }
+}
