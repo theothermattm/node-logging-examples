@@ -33,7 +33,6 @@ else {
   }
   // can also turn on sync: false
   logger = pino({level: level}, multistream(streams));
-  console.log('returning logger')
 }
 
 export default logger;
