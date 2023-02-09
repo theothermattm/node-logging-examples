@@ -1,7 +1,7 @@
 import { createLogger, transports } from 'winston';
 import { format } from 'logform';
 
-let logLevel = process.env.LOG_LEVEL || 'info'
+let logLevel = process.env.LOG_LEVEL || 'silly'
 let fileLog = process.env.LOG_TO_FILENAME || false
 
 /* This blog post has some good information on configuring winston if you want to customize it.

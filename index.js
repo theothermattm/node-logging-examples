@@ -13,8 +13,21 @@
 
 // import { syncClients } from './pino/example-pino.js'
 
-//import { syncClients } from './winston/example-winston.js'
+// import { syncClients } from './winston/example-winston.js'
 
-import { syncClients } from './log4js/example-log4js.js'
+// import { syncClients } from './log4js/example-log4js.js'
 
-syncClients();
+// await syncClients();
+
+
+// see perf test results
+
+// import { runPerfTest } from './winston/winston-perf.js';
+
+import { runPerfTest } from './pino/pino-perf.js';
+
+// import { runPerfTest } from './log4js/log4js-perf.js';
+
+// import { runPerfTest } from './console/console-perf.js';
+
+runPerfTest();

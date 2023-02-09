@@ -6,6 +6,6 @@
       "appenders": ["standard"],
       "level": "debug"
     },
-    "perf": { "appenders": ["standard"], "level": "trace" }
+    "perf": { "appenders": ["standard"], "level": "trace"}
   }
 }

@@ -29,6 +29,7 @@ const syncClients = async function() {
 
   logger.trace("Setting last run date so we know where to pick up next time.")
   await setLastRun(moment())
+
   return modifiedClients;
 }
 
