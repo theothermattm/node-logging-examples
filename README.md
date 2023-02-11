@@ -1,24 +1,34 @@
 # Node.js Logging Examples
 
+A set of interesting configurations and comparisons for node.js logging frameworks.
+
 * Using `console.log`
 * Using [log4js](https://log4js-node.github.io/log4js-node)
 * Using [pino](https://github.com/pinojs/pino)
 * Using [winston](https://github.com/winstonjs/winston#filtering-info-objects)
 
 
-Run:
+To see example log output for various frameworks:
 
 ```
-node index.js
+node index.js --help
+
+Usage: index [options]
+
+Options:
+  -f --framework <framework>  logging framework name: pino, winston, console or log4js
+  -p --perfTest [perfTest]    Run A Perf Test
+  -h, --help                  display help for command
+Example command: node index.js -f pino
+
+Available frameworks: pino, winston, log4js, console
+
+You can set NODE_ENV=development or production, LOG_LEVEL, LOG_TO_FILENAME as environment variables to see different behavior
+
 ```
 
-Also, you can set environment variables for different log variations:
+To run a sample perf test;
 
 ```
-LOG_LEVEL (varies by framework, info and error are common)
-NODE_ENV (production or development)
-LOG_FILENAME (to log out a file)
+./scripts/perf-test.sh
 ```
-
-You can change around `index.js` to experiment with the different frameworks.
-
