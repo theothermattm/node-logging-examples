@@ -8,7 +8,7 @@ A set of interesting configurations and comparisons for node.js logging framewor
 * Using [winston](https://github.com/winstonjs/winston#filtering-info-objects)
 
 
-To see example log output for various frameworks:
+To see example log output for various frameworks, this is running on [ReplIt](https://replit.com/@theothermattm/node-logging-examples#README.md) (use the "shell" button):
 
 ```
 node index.js --help
