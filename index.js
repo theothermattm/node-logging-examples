@@ -1,11 +1,13 @@
 import { program } from "commander";
 
+import { syncClients as syncClientsBunyan } from "./bunyan/example-bunyan.js";
 import { syncClients as syncClientsConsole } from "./console/example-console.js";
 import { syncClients as syncClientsLog4js } from "./log4js/example-log4js.js";
 import { syncClients as syncClientsLogLevel } from "./loglevel/example-loglevel.js";
 import { syncClients as syncClientsPino } from "./pino/example-pino.js";
 import { syncClients as syncClientsWinston } from "./winston/example-winston.js";
 
+import { runPerfTest as runPerfTestBunyan } from "./bunyan/bunyan-perf.js";
 import { runPerfTest as runPerfTestConsole } from "./console/console-perf.js";
 import { runPerfTest as runPerfTestLog4js } from "./log4js/log4js-perf.js";
 import { runPerfTest as runPerfTestLoglevel } from "./loglevel/loglevel-perf.js";
@@ -31,6 +33,9 @@ async function run() {
 
   if (!options.perfTest) {
     switch (options.framework) {
+      case "bunyan":
+        await syncClientsBunyan();
+        break;
       case "console":
         await syncClientsConsole();
         break;
@@ -52,6 +57,9 @@ async function run() {
     }
   } else {
     switch (options.framework) {
+      case "bunyan":
+        runPerfTestConsole();
+        break;
       case "console":
         runPerfTestConsole();
         break;

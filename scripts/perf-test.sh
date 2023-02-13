@@ -2,6 +2,12 @@
 
 NUMBER_OF_RUNS=20
 
+echo "Running bunyan perf tests $NUMBER_OF_RUNS times"
+for i in $( seq 0 $NUMBER_OF_RUNS); 
+do
+  /usr/bin/time -a -o bunyan-times-output.txt node index.js -f bunyan -p >> bunyan-output.txt
+done
+
 echo "Running console perf tests $NUMBER_OF_RUNS times"
 for i in $( seq 0 $NUMBER_OF_RUNS); 
 do
