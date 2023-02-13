@@ -26,6 +26,12 @@ do
   /usr/bin/time -a -o log4js-times-output.txt node index.js -f log4js -p >> log4js-output.txt
 done
 
+echo "Running loglevel perf tests $NUMBER_OF_RUNS times"
+for i in $( seq 0 $NUMBER_OF_RUNS); 
+do
+  /usr/bin/time -a -o loglevel-times-output.txt node index.js -f loglevel -p >> loglevel-output.txt
+done
+
 echo "Done!"
 
 

@@ -16,7 +16,7 @@ node index.js --help
 Usage: index [options]
 
 Options:
-  -f --framework <framework>  logging framework name: pino, winston, console or log4js
+  -f --framework <framework>  logging framework name: pino, winston, console, loglevel or log4js
   -p --perfTest [perfTest]    Run A Perf Test
   -h, --help                  display help for command
 Example command: node index.js -f pino

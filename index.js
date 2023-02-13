@@ -1,21 +1,23 @@
 import { program } from "commander";
 
 import { syncClients as syncClientsConsole } from "./console/example-console.js";
+import { syncClients as syncClientsLog4js } from "./log4js/example-log4js.js";
+import { syncClients as syncClientsLogLevel } from "./loglevel/example-loglevel.js";
 import { syncClients as syncClientsPino } from "./pino/example-pino.js";
 import { syncClients as syncClientsWinston } from "./winston/example-winston.js";
-import { syncClients as syncClientsLog4js } from "./log4js/example-log4js.js";
 
-import { runPerfTest as runPerfTestWinston } from "./winston/winston-perf.js";
-import { runPerfTest as runPerfTestPino } from "./pino/pino-perf.js";
-import { runPerfTest as runPerfTestLog4js } from "./log4js/log4js-perf.js";
 import { runPerfTest as runPerfTestConsole } from "./console/console-perf.js";
+import { runPerfTest as runPerfTestLog4js } from "./log4js/log4js-perf.js";
+import { runPerfTest as runPerfTestLoglevel } from "./loglevel/loglevel-perf.js";
+import { runPerfTest as runPerfTestPino } from "./pino/pino-perf.js";
+import { runPerfTest as runPerfTestWinston } from "./winston/winston-perf.js";
 
 async function run() {
   program 
     .on("--help", () => {
       console.log(
         "Example command: node index.js -f pino \n\n" +
-          "Available frameworks: pino, winston, log4js, console \n \n" +
+          "Available frameworks: pino, winston, log4js, loglevel, console \n \n" +
           "You can set NODE_ENV=development or production, LOG_LEVEL, LOG_TO_FILENAME " +
           "as environment variables to see different behavior"
       );
@@ -29,17 +31,20 @@ async function run() {
 
   if (!options.perfTest) {
     switch (options.framework) {
-      case "pino":
-        await syncClientsPino();
+      case "console":
+        await syncClientsConsole();
         break;
       case "log4js":
         await syncClientsLog4js();
         break;
+      case "loglevel":
+        await syncClientsLogLevel();
+        break;
+      case "pino":
+        await syncClientsPino();
+        break;
       case "winston":
         await syncClientsWinston();
-        break;
-      case "console":
-        await syncClientsConsole();
         break;
       default:
         console.log("Unsupported framework option.");
@@ -47,17 +52,20 @@ async function run() {
     }
   } else {
     switch (options.framework) {
-      case "pino":
-        runPerfTestPino();
+      case "console":
+        runPerfTestConsole();
         break;
       case "log4js":
         runPerfTestLog4js();
         break;
+      case "loglevel":
+        runPerfTestLoglevel();
+        break;
+      case "pino":
+        runPerfTestPino();
+        break;
       case "winston":
         runPerfTestWinston();
-        break;
-      case "console":
-        runPerfTestConsole();
         break;
       default:
         console.log("Unsupported framework option.");
