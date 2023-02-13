@@ -1,17 +1,16 @@
 import categoryglobber from '../log4js/categoryglobber';
 
-
 test('category globber unglobs all the files', () => {
   const globbedOptions = {
-    appenders: { standard: { type: "stdout" }, },
+    appenders: { standard: { type: 'stdout' } },
     categories: {
-      default: { appenders: ["standard"], level: "info" },
-      'test/examplefolder/**.js': { appenders: ["standard"], level: "debug" },
-      perf: { appenders: ["standard"], level: "trace" }
+      default: { appenders: ['standard'], level: 'info' },
+      'test/examplefolder/**.js': { appenders: ['standard'], level: 'debug' },
+      perf: { appenders: ['standard'], level: 'trace' },
     },
-  }
+  };
 
-  const result = categoryglobber(globbedOptions)
+  const result = categoryglobber(globbedOptions);
   expect(Object.keys(result).length).toEqual(Object.keys(globbedOptions).length);
 
   // expect to find two files plus the two other 'named' categories

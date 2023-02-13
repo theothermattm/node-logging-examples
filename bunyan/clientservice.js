@@ -1,18 +1,20 @@
-import {createLogger} from './bunyanlogger.js';
-const logger = createLogger({fileName: import.meta.url, level: 'debug'});
+import { createLogger } from './bunyanlogger.js';
+
+/* eslint-disable no-unused-vars */
+const logger = createLogger({ fileName: import.meta.url, level: 'debug' });
 
 async function clientsUpdatedSince(dateSince) {
   logger.debug('Clients updated since');
   // just a stub
   return [{
     id: 1,
-    name: 'Client1'
+    name: 'Client1',
   },
   {
     id: 2,
-    name: 'Client2'
+    name: 'Client2',
 
-  }]
+  }];
 }
 
 async function doSomethingReallyComplicatedInAnotherService(object) {
@@ -28,7 +30,10 @@ async function getLastRun(dateRun) {
 
 async function setLastRun(dateRun) {
   // just a stub
-  return;
-}
 
-export { clientsUpdatedSince, doSomethingReallyComplicatedInAnotherService, getLastRun, setLastRun }
+}
+/* eslint-enable no-unused-vars */
+
+export {
+  clientsUpdatedSince, doSomethingReallyComplicatedInAnotherService, getLastRun, setLastRun,
+};
