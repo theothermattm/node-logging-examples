@@ -22,7 +22,7 @@ Options:
   -h, --help                  display help for command
 Example command: node index.js -f pino
 
-Available frameworks: pino, winston, log4js, console
+Available frameworks: bunyan, console, log4js, loglevel, pino, winston
 
 You can set NODE_ENV=development or production, LOG_LEVEL, LOG_TO_FILENAME as environment variables to see different behavior
 
