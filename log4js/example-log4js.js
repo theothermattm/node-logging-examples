@@ -3,6 +3,7 @@ import { createModuleLogger, log4js } from './log4jslogger.js';
 import { clientsUpdatedSince, setLastRun, getLastRun, doSomethingReallyComplicatedInAnotherService } from './log4jssubfolder/clientservice.js';
 import { doSomethingAwesome } from './log4jssubfolder/anotherservice.js';
 
+// for commonjs, you can just use __filename
 const logger = createModuleLogger(import.meta.url);
 const perfLogger = log4js.getLogger("perf");
 
@@ -14,7 +15,6 @@ const syncClients = async function() {
     startTime = new Date();
   }
   logger.info('Syncing clients...');
-  const CLIENT_LAST_RUN_KEY = 'CLIENT_LAST_RUN_DATE';
   const lastRun = await getLastRun();
   const from = lastRun || moment().subtract(3, 'days').format(DATE_FORMAT);
   const timeOfLastFetch = moment().format(DATE_FORMAT)

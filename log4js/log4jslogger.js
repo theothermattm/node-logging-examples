@@ -26,10 +26,16 @@ log4js.configure(unglobbedOptions);
  * call like this with es modules:  const logger = createModuleLogger(import.meta.url) 
  **/
 function createModuleLogger(fileName) {
-  // fun trick https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
-  // you can just use __filename if using commonjs modules! (eg require() format)
-  const __filename = fileURLToPath(fileName);
-  const relativeModuleName = path.relative('', __filename);
+  let relativeModuleName;
+  if( import.meta ) {
+    // fun trick https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
+    const __filename = fileURLToPath(fileName);
+    relativeModuleName = path.relative('', __filename);
+  }
+  else {
+    relativeModuleName = path.relative('', __filename);
+  }
+
   return log4js.getLogger(relativeModuleName);
 }
 
